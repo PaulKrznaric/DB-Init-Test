@@ -23,6 +23,3 @@ resource "aws_instance" "db_server" {
   }
 }
 
-resource "" "name" {
-
-}

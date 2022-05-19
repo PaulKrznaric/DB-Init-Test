@@ -1,0 +1,4 @@
+#bash
+cd ../infrastructure
+terraform apply -auto-approve
+cd - 
