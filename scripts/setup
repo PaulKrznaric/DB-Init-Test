@@ -2,3 +2,4 @@
 cd ../infrastructure
 terraform apply -auto-approve
 cd - 
+chmod +x teardown
