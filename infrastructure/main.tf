@@ -28,7 +28,7 @@ resource "aws_db_instance" "db_server" {
   allocated_storage   = 20
   identifier          = "dev-db"
   engine              = "postgres"
-  engine_version      = "13"
+  engine_version      = "15"
   instance_class      = "db.t3.micro"
   name                = "pgdb001"
   username            = "devadmin"
@@ -39,5 +39,10 @@ resource "aws_db_instance" "db_server" {
   tags = {
     Name = "ExampleDBDeployment"
   }
+}
+
+output "db_password" {
+  value     = random_password.password.result
+  sensitive = true
 }
 

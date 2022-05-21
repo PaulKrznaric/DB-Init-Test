@@ -1,5 +1,6 @@
 #bash
 cd ../infrastructure
 terraform apply -auto-approve
+terraform output -json
 cd - 
 chmod +x teardown
