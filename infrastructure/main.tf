@@ -45,22 +45,3 @@ output "db_password" {
   value     = random_password.password.result
   sensitive = true
 }
-
-resource "null_resource" "setup_db" {
-  depends_on = [aws_db_instance.db_server]
-  provisioner "local-exec" {
-    interpreter = ["/bin/bash", "-c"]
-    working_dir = "/tmp"
-    command     = <<-EOT
-            #!/bin/bash
-            sudo yum update -y
-            sudo yum install -y https://download.postgresql.org/pub/repos/yum/reporpms/EL-6-x86_64/pgdg-redhat-repo-latest.noarch.rpm
-            sudo yum install postgresql -y
-            export PGPASSWORD = ${random_password.password.result}
-             psql --host=${aws_db_instance.db_server.endpoint} --port=5432 --username=devadmin --dbname=pgdb001 < setup.psql
-            EOT      
-  }
-}
-
-
-
