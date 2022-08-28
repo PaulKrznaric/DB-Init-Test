@@ -12,4 +12,4 @@ The scripts provided are written in Bash and will deploy the
   a. Note: This will automatically apply terraform under an account called `emr-dev` under your terraform configuration
 3. When you are done with your database, in the same directory run the teardown (`./teardown)*
 
-* If you do not destroy your database it will run indefinitely on AWS and you'll have to pay for it. 
+*If you do not destroy your database it will run indefinitely on AWS and you'll have to pay for it. 
